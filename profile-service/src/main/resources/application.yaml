@@ -1,0 +1,27 @@
+spring:
+  profiles:    active: dev
+  application:    name: profile-service
+server:
+  port: ${PORT:0}
+  #ssl:
+  #  enabled: false
+  #  key-alias: booking_inc_selfsigned
+  #  key-store: classpath:ssl-server.jks
+  #  key-store-password: password
+  #  key-store-provider: SUN
+  #  key-store-type: JKS
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+---
+spring:
+  profiles: dev
+mongo:  host: booking-qdqfh.mongodb.net
+  authentication-database: service
+  username: automation
+  password: superuser
+---
+spring:  profiles: stage
+---
+spring:  profiles: prod
